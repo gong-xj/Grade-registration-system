@@ -13,8 +13,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-//【连接】
-//数据库配置
+//【连接数据库的配置】
 const (
 	userName = "xx"
 	password = "xx"
@@ -23,7 +22,7 @@ const (
 	dbName   = "aa"
 )
 
-//1【record/:courseCode/:studentId?score=xxx】
+//1【record/:courseCode/:studentId?score=xxx】update,insert
 //ex.http://localhost:8080/record/b003/xh20200101?score=100
 func record(c *gin.Context) {
 	fmt.Println("--->record") //测试1
