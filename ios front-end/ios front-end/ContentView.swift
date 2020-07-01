@@ -15,12 +15,12 @@ import SwiftUI
 //}
 
 struct ContentView: View, Identifiable {
-    @State var id = ""
+    @State var id = "xh20200101"
     @State var name = ""
     @State var vercode = ""
     @State var login = false
     @State var res = ""
-    @State var res2 = "学科名 分数\n语文  85\n英语  100\n物理  100\n美术  90"
+//    @State var res2 = "学科名 分数\n语文  85\n英语  100\n物理  100\n美术  90"
     
 
     var body: some View {
@@ -58,25 +58,24 @@ struct ContentView: View, Identifiable {
                             let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
                                 guard let data = data else { return }
     //                                print(String(data: data, encoding: .utf8)!)
-                                let res=String(data: data, encoding: .utf8)!
-                                print(res)
-                                if res != "0" {
+                                self.res=String(data: data, encoding: .utf8)!
+                                if self.res != "0" {
                                     self.login=true
                                 }
+                                print(self.res)
                             }
-                        task.resume()}) {
+                            
+                            task.resume()}) {
                         Text("登录")
                             .foregroundColor(Color.black)
                         }
                     }
                 }
             }else{
-//                Text(res2)
-                Text(res)
-//                    .fixedSize(horizontal: false, vertical: true)
-//                    .padding()
-//                Text("学科名 分数\n语文  85\n英语  100\n物理  100\n美术  90")
-//                StudentView(id:id, name:name, res:res)
+//                VStack {
+//                    Text(res)
+//                }
+                StudentView(id:id, name:name, res:res)
             }
         }
     }

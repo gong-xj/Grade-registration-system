@@ -37,7 +37,7 @@ struct scView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("自己的学科+成绩")
+//            Text("自己的学科+成绩")
             Text(self.res)
 //            print(String(self.res))
 //            print(String(format:"res=%@", arguments:[res]))
