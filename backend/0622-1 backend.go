@@ -118,16 +118,18 @@ func view(c *gin.Context) {
 	_, ok := verCodeMapTc[inputVerCode1]
 	// verCode2 := strconv.Itoa(verCode1)
 	if (inputVerCode1 != verCode1 && !ok) || verCode == 0 {
-		c.String(http.StatusOK, "please log in.")
+		// c.String(http.StatusOK, "please log in.") //2选1
+		c.String(http.StatusOK, "0") //2选1
 	} else if courseCode == "all" {
 		rows, err := db.Query("SELECT cs.name, sc.score FROM st_score as sc JOIN st_course as cs ON sc.crs_code=cs.code WHERE stu_sid=?", studentId)
 		if err != nil {
 			fmt.Println("查询出错了", err) //测试
 			c.String(http.StatusOK, "no result")
 		} else {
-			// c.String(http.StatusOK, "学科名 分数\n")
+			//// c.String(http.StatusOK, "学科名 分数\n")
 			//循环读取结果
-			responseText := "学科名 分数\n"
+			responseText := "学科名 分数\n" //2选1
+			// responseText := "1" //2选1
 			for rows.Next() {
 				var csName string
 				var score string
@@ -137,11 +139,11 @@ func view(c *gin.Context) {
 					fmt.Println("rows fail", err)
 				}
 				responseText += csName + "  " + score + "\n"
-				// c.String(http.StatusOK, " "+csName+"  "+score+"\n")
+				//// c.String(http.StatusOK, " "+csName+"  "+score+"\n")
 			}
-			// for i, _ range csNames {
-			//     responseText += csNames[i] + scores[i]
-			// }
+			//// for i, _ range csNames {
+			////     responseText += csNames[i] + scores[i]
+			//// }
 			c.String(http.StatusOK, responseText)
 			// c.String(http.StatusOK, "学科名: 分数:\n"+strings.Join(csNames, "\n")+strings.Join(scores, "\n"))
 		}
@@ -200,7 +202,8 @@ func loginSt(c *gin.Context) {
 		fmt.Println("查询出错了", err) //测试
 		c.String(http.StatusOK, "no result")
 	} else {
-		c.String(http.StatusOK, "hello "+stName+", verification code is send to your phone"+phoneNumber)
+		// c.String(http.StatusOK, "hello "+stName+", verification code is send to your phone"+phoneNumber)
+		c.String(http.StatusOK, stName)
 		verCode = rand.Intn(9000) + 1000
 		verCodeMap[Id] = verCode
 		fmt.Println(verCodeMap)

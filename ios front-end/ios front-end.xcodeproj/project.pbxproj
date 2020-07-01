@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		124EA35924AB315100CBF266 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124EA35824AB315100CBF266 /* SwiftUIView.swift */; };
 		12CF549824A9D035002AAEDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF549724A9D035002AAEDC /* AppDelegate.swift */; };
 		12CF549A24A9D035002AAEDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF549924A9D035002AAEDC /* SceneDelegate.swift */; };
 		12CF549C24A9D035002AAEDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF549B24A9D035002AAEDC /* ContentView.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		124EA35824AB315100CBF266 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		12CF549424A9D035002AAEDC /* ios front-end.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios front-end.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		12CF549724A9D035002AAEDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12CF549924A9D035002AAEDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				12CF549B24A9D035002AAEDC /* ContentView.swift */,
 				12CF54C724A9D0EF002AAEDC /* StudentView.swift */,
 				12CF54CB24A9D98C002AAEDC /* TeacherView.swift */,
+				124EA35824AB315100CBF266 /* SwiftUIView.swift */,
 				12CF549D24A9D038002AAEDC /* Assets.xcassets */,
 				12CF54A224A9D038002AAEDC /* LaunchScreen.storyboard */,
 				12CF54A524A9D038002AAEDC /* Info.plist */,
@@ -275,6 +278,7 @@
 			files = (
 				12CF549824A9D035002AAEDC /* AppDelegate.swift in Sources */,
 				12CF54CC24A9D98C002AAEDC /* TeacherView.swift in Sources */,
+				124EA35924AB315100CBF266 /* SwiftUIView.swift in Sources */,
 				12CF549A24A9D035002AAEDC /* SceneDelegate.swift in Sources */,
 				12CF54C824A9D0EF002AAEDC /* StudentView.swift in Sources */,
 				12CF549C24A9D035002AAEDC /* ContentView.swift in Sources */,
