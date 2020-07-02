@@ -20,6 +20,7 @@ struct ContentView: View, Identifiable {
     @State var vercode = ""
     @State var login = false
     @State var res = ""
+    @State var stOrTe = "学生"
 //    @State var res2 = "学科名 分数\n语文  85\n英语  100\n物理  100\n美术  90"
     
 
@@ -37,7 +38,7 @@ struct ContentView: View, Identifiable {
                                 Text("验证码")
                                 TextField("VerCode", text: $vercode)
                                 Button(action: {
-                                    let url = URL(string: "http://localhost:8080/login/student/\(self.id)")!
+                                    let url = URL(string: "http://localhost:8080/login/\(self.id)")!
                                     let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
                                         guard let data = data else { return }
                                         self.name = String(data: data, encoding: .utf8)!
@@ -62,7 +63,11 @@ struct ContentView: View, Identifiable {
                                 if self.res != "0" {
                                     self.login=true
                                 }
-                                print(self.res)
+//                                print(self.res)
+                                if self.id.count < 10 {
+                                    self.stOrTe = "老师"
+                                }
+                                print(self.stOrTe)
                             }
                             
                             task.resume()}) {
@@ -72,10 +77,7 @@ struct ContentView: View, Identifiable {
                     }
                 }
             }else{
-//                VStack {
-//                    Text(res)
-//                }
-                StudentView(id:id, name:name, res:res)
+                LoggedView(id:id, name:name, res:res, stOrTe:stOrTe)
             }
         }
     }
