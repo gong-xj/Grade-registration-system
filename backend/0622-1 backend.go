@@ -333,6 +333,6 @@ func main() {
 	// router.GET("login/teacher/:Id", loginTc)
 
 	// router.Run(":8080")
-	router.RunTLS(":8081", "key.pem", "cert.pem")
+	router.RunTLS(":8081", "cert.pem", "key.pem")
 
 }

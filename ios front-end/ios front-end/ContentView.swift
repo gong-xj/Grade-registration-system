@@ -33,7 +33,7 @@ struct ContentView: View, Identifiable {
                                 Text("验证码")
                                 TextField("VerCode", text: $vercode)
                                 Button(action: {
-                                    let url = URL(string: "http://localhost:8080/login/\(self.id)")!
+                                    let url = URL(string: "https://localhost:8081/login/\(self.id)")!
                                     let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
                                         guard let data = data else { return }
                                         self.name = String(data: data, encoding: .utf8)!
@@ -50,7 +50,7 @@ struct ContentView: View, Identifiable {
                     HStack {
                         Button(action: {
 //                            print(">>>登录button")
-                            let url = URL(string: "http://localhost:8080/view/\(self.id)/all?code=\(self.vercode)")!
+                            let url = URL(string: "https://localhost:8081/view/\(self.id)/all?code=\(self.vercode)")!
                             let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
                                 guard let data = data else { return }
     //                                print(String(data: data, encoding: .utf8)!)
