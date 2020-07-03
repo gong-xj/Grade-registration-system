@@ -8,14 +8,9 @@
 
 import SwiftUI
 
-//class BCModel:ObservableObject{
-//   @Published var id = ""
-//   @Published  var vercode = ""
-//   @Published  var login = false
-//}
-
 struct ContentView: View, Identifiable {
-    @State var id = "xh20200101"
+    @State var id = "xh001"
+//    @State var id = "xh20200101"
     @State var name = ""
     @State var vercode = ""
     @State var login = false

@@ -128,7 +128,7 @@ func view(c *gin.Context) {
 				fmt.Println("查询出错了", err) //测试
 				c.String(http.StatusOK, "no result")
 			} else {
-				responseText := "学生名\n"
+				responseText := ""
 				for rows.Next() {
 					var stName string
 					err := rows.Scan(&stName)
@@ -332,6 +332,7 @@ func main() {
 
 	// router.GET("login/teacher/:Id", loginTc)
 
-	router.Run(":8080")
+	// router.Run(":8080")
+	router.RunTLS(":8081", "key.pem", "cert.pem")
 
 }
