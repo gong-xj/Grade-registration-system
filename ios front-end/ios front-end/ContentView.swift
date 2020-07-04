@@ -80,6 +80,7 @@ struct ContentView: View, Identifiable {
                                         self.scData.append(scRow)
                                     }
                                 }
+                                print(self.stData)
                                 print(self.scData)
                                 print(self.stOrTe)
                             }
@@ -94,7 +95,7 @@ struct ContentView: View, Identifiable {
                     if self.stOrTe == "老师" {
                         TcLoggedView(id:id, name:name, stData:stData, stOrTe:stOrTe)
                     }else {
-                        LoggedView(id:id, name:name, scData:scData, stOrTe:stOrTe)
+                        StLoggedView(id:id, name:name, scData:scData, stOrTe:stOrTe)
                     }
                 }
             }

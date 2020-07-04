@@ -14,7 +14,7 @@ struct StListView: View {
     var body: some View {
         NavigationView {
             List(stData) { st in
-//                NavigationLink(destination: 跳转界面(数据结构: 数据结构))
+//                NavigationLink(destination: id,vercode→ScView(scData))
 //                {
                 Text (st.name)
 //                }

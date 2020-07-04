@@ -1,14 +1,14 @@
 //
-//  LoggedView.swift
+//  StLoggedView.swift
 //  ios front-end
 //
-//  Created by Gongxinjie on 2020/06/29.
+//  Created by Gongxinjie on 2020/07/04.
 //  Copyright © 2020 Gongxinjie. All rights reserved.
 //
 
 import SwiftUI
 
-struct LoggedView: View {
+struct StLoggedView: View {
     @State var id: String
     @State var name: String
     @State var scData: [Sc]
@@ -31,9 +31,8 @@ struct LoggedView: View {
     }
 }
 
-struct LoggedView_Previews: PreviewProvider {
+struct StLoggedView_Previews: PreviewProvider {
     static var previews: some View {
-        LoggedView(id:"id??", name:"name??", scData:[], stOrTe:"学生??")
-//        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+        StLoggedView(id:"id??", name:"name??", scData:[], stOrTe:"学生??")
     }
 }

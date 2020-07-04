@@ -16,6 +16,7 @@
 		12951E5A24B0648700E72E59 /* St.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12951E5924B0648700E72E59 /* St.swift */; };
 		12951E5C24B0B28900E72E59 /* TcLoggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12951E5B24B0B28900E72E59 /* TcLoggedView.swift */; };
 		12951E5E24B0B95A00E72E59 /* Sc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12951E5D24B0B95A00E72E59 /* Sc.swift */; };
+		12951E6024B0CC9400E72E59 /* StLoggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12951E5F24B0CC9400E72E59 /* StLoggedView.swift */; };
 		12CF549824A9D035002AAEDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF549724A9D035002AAEDC /* AppDelegate.swift */; };
 		12CF549A24A9D035002AAEDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF549924A9D035002AAEDC /* SceneDelegate.swift */; };
 		12CF549C24A9D035002AAEDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF549B24A9D035002AAEDC /* ContentView.swift */; };
@@ -24,7 +25,6 @@
 		12CF54A424A9D038002AAEDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12CF54A224A9D038002AAEDC /* LaunchScreen.storyboard */; };
 		12CF54AF24A9D038002AAEDC /* ios_front_endTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF54AE24A9D038002AAEDC /* ios_front_endTests.swift */; };
 		12CF54BA24A9D038002AAEDC /* ios_front_endUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF54B924A9D038002AAEDC /* ios_front_endUITests.swift */; };
-		12CF54C824A9D0EF002AAEDC /* LoggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF54C724A9D0EF002AAEDC /* LoggedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +54,7 @@
 		12951E5924B0648700E72E59 /* St.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = St.swift; sourceTree = "<group>"; };
 		12951E5B24B0B28900E72E59 /* TcLoggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcLoggedView.swift; sourceTree = "<group>"; };
 		12951E5D24B0B95A00E72E59 /* Sc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sc.swift; sourceTree = "<group>"; };
+		12951E5F24B0CC9400E72E59 /* StLoggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StLoggedView.swift; sourceTree = "<group>"; };
 		12CF549424A9D035002AAEDC /* ios front-end.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios front-end.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		12CF549724A9D035002AAEDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12CF549924A9D035002AAEDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +69,6 @@
 		12CF54B524A9D038002AAEDC /* ios front-endUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios front-endUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		12CF54B924A9D038002AAEDC /* ios_front_endUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_front_endUITests.swift; sourceTree = "<group>"; };
 		12CF54BB24A9D038002AAEDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		12CF54C724A9D0EF002AAEDC /* LoggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 				12CF549924A9D035002AAEDC /* SceneDelegate.swift */,
 				12CF549B24A9D035002AAEDC /* ContentView.swift */,
 				12951E5B24B0B28900E72E59 /* TcLoggedView.swift */,
-				12CF54C724A9D0EF002AAEDC /* LoggedView.swift */,
+				12951E5F24B0CC9400E72E59 /* StLoggedView.swift */,
 				12951E5124AD990E00E72E59 /* StListView.swift */,
 				12951E5924B0648700E72E59 /* St.swift */,
 				12951E4D24AD979E00E72E59 /* ScView.swift */,
@@ -303,11 +303,11 @@
 				12951E5C24B0B28900E72E59 /* TcLoggedView.swift in Sources */,
 				124EA35924AB315100CBF266 /* SwiftUIView.swift in Sources */,
 				12951E5224AD990E00E72E59 /* StListView.swift in Sources */,
+				12951E6024B0CC9400E72E59 /* StLoggedView.swift in Sources */,
 				12951E5E24B0B95A00E72E59 /* Sc.swift in Sources */,
 				12951E4E24AD979E00E72E59 /* ScView.swift in Sources */,
 				12CF549A24A9D035002AAEDC /* SceneDelegate.swift in Sources */,
 				12951E5824B04C8000E72E59 /* Row例子.swift in Sources */,
-				12CF54C824A9D0EF002AAEDC /* LoggedView.swift in Sources */,
 				12951E5A24B0648700E72E59 /* St.swift in Sources */,
 				12CF549C24A9D035002AAEDC /* ContentView.swift in Sources */,
 			);
