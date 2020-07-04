@@ -9,12 +9,15 @@
 import SwiftUI
 
 struct ContentView: View, Identifiable {
-    @State var id = "xh001"
-//    @State var id = "xh20200101"
+//    @State var id = "xh001"
+    @State var id = "xh20200101"
     @State var name = ""
     @State var vercode = ""
     @State var login = false
     @State var res = ""
+    @State var res2 = [String.SubSequence]()
+    @State var stData = [St]()
+    @State var scData = [Sc]()
     @State var stOrTe = "学生"
 //    @State var res2 = "学科名 分数\n语文  85\n英语  100\n物理  100\n美术  90"
     
@@ -59,13 +62,27 @@ struct ContentView: View, Identifiable {
                                 if self.res != "0" {
                                     self.login=true
                                 }
-//                                print(self.res)
+                                self.res2 = self.res.split { $0.isNewline }
                                 if self.id.count < 10 {
                                     self.stOrTe = "老师"
+                                    //res2转化为st格式
+                                    for (i,item) in self.res2.enumerated() {
+                                        var stRow = St(id: 0, name:"" )
+                                        stRow.id = i
+                                        stRow.name = String(item)
+                                        self.stData.append(stRow)
+                                    }
+                                }else{
+                                    for (i,item) in self.res2.enumerated() {
+                                        var scRow = Sc(id: 0, nameAndScore:"" )
+                                        scRow.id = i
+                                        scRow.nameAndScore = String(item)
+                                        self.scData.append(scRow)
+                                    }
                                 }
+                                print(self.scData)
                                 print(self.stOrTe)
                             }
-                            
                             task.resume()}) {
                         Text("登录")
                             .foregroundColor(Color.black)
@@ -73,7 +90,13 @@ struct ContentView: View, Identifiable {
                     }
                 }
             }else{
-                LoggedView(id:id, name:name, res:res, stOrTe:stOrTe)
+                VStack {
+                    if self.stOrTe == "老师" {
+                        TcLoggedView(id:id, name:name, stData:stData, stOrTe:stOrTe)
+                    }else {
+                        LoggedView(id:id, name:name, scData:scData, stOrTe:stOrTe)
+                    }
+                }
             }
         }
     }
@@ -101,7 +124,7 @@ class AllowsSelfSignedCertificateDelegate: NSObject, URLSessionDelegate {
             completionHandler(.useCredential, URLCredential(trust: serverTrust))
         } else {
             // 通信を中断させたい場合は、cancelを返す
-            completionHandler(.cancelAuthenticationChallenge, nil)
+//            completionHandler(.cancelAuthenticationChallenge, nil)
         }
     }
 }

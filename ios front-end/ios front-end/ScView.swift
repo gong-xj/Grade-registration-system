@@ -9,18 +9,21 @@
 import SwiftUI
 
 struct ScView: View {
-    @State var res: String
-//    @State var stOrTe: String
+    @State var scData: [Sc]
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(self.res)
+//            Text("hello你大爷")
+            List(scData) { sc in
+                Text(sc.nameAndScore)
+//                Text("111")
+            }
         }
     }
 }
 
 struct ScView_Previews: PreviewProvider {
     static var previews: some View {
-        ScView(res: "res??:sc")
+        ScView(scData: [])
     }
 }

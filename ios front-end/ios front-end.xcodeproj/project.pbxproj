@@ -12,6 +12,10 @@
 		12951E4E24AD979E00E72E59 /* ScView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12951E4D24AD979E00E72E59 /* ScView.swift */; };
 		12951E5224AD990E00E72E59 /* StListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12951E5124AD990E00E72E59 /* StListView.swift */; };
 		12951E5424AF7B9900E72E59 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12951E5324AF7B9800E72E59 /* Default-568h@2x.png */; };
+		12951E5824B04C8000E72E59 /* Row例子.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12951E5724B04C7F00E72E59 /* Row例子.swift */; };
+		12951E5A24B0648700E72E59 /* St.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12951E5924B0648700E72E59 /* St.swift */; };
+		12951E5C24B0B28900E72E59 /* TcLoggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12951E5B24B0B28900E72E59 /* TcLoggedView.swift */; };
+		12951E5E24B0B95A00E72E59 /* Sc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12951E5D24B0B95A00E72E59 /* Sc.swift */; };
 		12CF549824A9D035002AAEDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF549724A9D035002AAEDC /* AppDelegate.swift */; };
 		12CF549A24A9D035002AAEDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF549924A9D035002AAEDC /* SceneDelegate.swift */; };
 		12CF549C24A9D035002AAEDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF549B24A9D035002AAEDC /* ContentView.swift */; };
@@ -46,6 +50,10 @@
 		12951E4D24AD979E00E72E59 /* ScView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScView.swift; sourceTree = "<group>"; };
 		12951E5124AD990E00E72E59 /* StListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StListView.swift; sourceTree = "<group>"; };
 		12951E5324AF7B9800E72E59 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		12951E5724B04C7F00E72E59 /* Row例子.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Row例子.swift"; sourceTree = "<group>"; };
+		12951E5924B0648700E72E59 /* St.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = St.swift; sourceTree = "<group>"; };
+		12951E5B24B0B28900E72E59 /* TcLoggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcLoggedView.swift; sourceTree = "<group>"; };
+		12951E5D24B0B95A00E72E59 /* Sc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sc.swift; sourceTree = "<group>"; };
 		12CF549424A9D035002AAEDC /* ios front-end.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios front-end.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		12CF549724A9D035002AAEDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12CF549924A9D035002AAEDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,11 +123,15 @@
 				12CF549724A9D035002AAEDC /* AppDelegate.swift */,
 				12CF549924A9D035002AAEDC /* SceneDelegate.swift */,
 				12CF549B24A9D035002AAEDC /* ContentView.swift */,
+				12951E5B24B0B28900E72E59 /* TcLoggedView.swift */,
 				12CF54C724A9D0EF002AAEDC /* LoggedView.swift */,
 				12951E5124AD990E00E72E59 /* StListView.swift */,
+				12951E5924B0648700E72E59 /* St.swift */,
 				12951E4D24AD979E00E72E59 /* ScView.swift */,
+				12951E5D24B0B95A00E72E59 /* Sc.swift */,
 				12951E4B24AD974300E72E59 /* MeView.swift */,
 				124EA35824AB315100CBF266 /* SwiftUIView.swift */,
+				12951E5724B04C7F00E72E59 /* Row例子.swift */,
 				12CF549D24A9D038002AAEDC /* Assets.xcassets */,
 				12CF54A224A9D038002AAEDC /* LaunchScreen.storyboard */,
 				12CF54A524A9D038002AAEDC /* Info.plist */,
@@ -288,11 +300,15 @@
 			files = (
 				12951E4C24AD974300E72E59 /* MeView.swift in Sources */,
 				12CF549824A9D035002AAEDC /* AppDelegate.swift in Sources */,
+				12951E5C24B0B28900E72E59 /* TcLoggedView.swift in Sources */,
 				124EA35924AB315100CBF266 /* SwiftUIView.swift in Sources */,
 				12951E5224AD990E00E72E59 /* StListView.swift in Sources */,
+				12951E5E24B0B95A00E72E59 /* Sc.swift in Sources */,
 				12951E4E24AD979E00E72E59 /* ScView.swift in Sources */,
 				12CF549A24A9D035002AAEDC /* SceneDelegate.swift in Sources */,
+				12951E5824B04C8000E72E59 /* Row例子.swift in Sources */,
 				12CF54C824A9D0EF002AAEDC /* LoggedView.swift in Sources */,
+				12951E5A24B0648700E72E59 /* St.swift in Sources */,
 				12CF549C24A9D035002AAEDC /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
