@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct ContentView: View, Identifiable {
-//    @State var id = "xh001"
-    @State var id = "xh20200101"
+    @State var id = "xh001"
+//    @State var id = "xh20200101"
     @State var name = ""
     @State var vercode = ""
     @State var login = false
@@ -59,17 +59,14 @@ struct ContentView: View, Identifiable {
                                 guard let data = data else { return }
     //                                print(String(data: data, encoding: .utf8)!)
                                 self.res=String(data: data, encoding: .utf8)!
-                                if self.res != "0" {
-                                    self.login=true
-                                }
                                 self.res2 = self.res.split { $0.isNewline }
                                 if self.id.count < 10 {
                                     self.stOrTe = "老师"
                                     //res2转化为st格式
                                     for (i,item) in self.res2.enumerated() {
-                                        var stRow = St(id: 0, name:"" )
+                                        var stRow = St(id: 0, sidAndStname:"" )
                                         stRow.id = i
-                                        stRow.name = String(item)
+                                        stRow.sidAndStname = String(item)
                                         self.stData.append(stRow)
                                     }
                                 }else{
@@ -79,6 +76,9 @@ struct ContentView: View, Identifiable {
                                         scRow.nameAndScore = String(item)
                                         self.scData.append(scRow)
                                     }
+                                }
+                                if self.res != "0" {
+                                    self.login=true
                                 }
                                 print(self.stData)
                                 print(self.scData)
@@ -93,7 +93,7 @@ struct ContentView: View, Identifiable {
             }else{
                 VStack {
                     if self.stOrTe == "老师" {
-                        TcLoggedView(id:id, name:name, stData:stData, stOrTe:stOrTe)
+                        TcLoggedView(id:id, name:name, stData:stData, stOrTe:stOrTe, vercode:vercode)
                     }else {
                         StLoggedView(id:id, name:name, scData:scData, stOrTe:stOrTe)
                     }

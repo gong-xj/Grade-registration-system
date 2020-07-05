@@ -115,27 +115,29 @@ func view(c *gin.Context) {
 	//准备就绪
 	verCode1, _ := verCodeMap[Id]
 	inputVerCode1, _ := strconv.Atoi(inputVerCode)
-	_, ok := verCodeMapTc[inputVerCode1]
+	tid, ok := verCodeMapTc[inputVerCode1]
 	if (inputVerCode1 != verCode1 && !ok) || verCode == 0 {
 		// c.String(http.StatusOK, "please log in.") //2选1
 		c.String(http.StatusOK, "0") //2选1
 	} else if courseCode == "all" {
-		if ok {
+		if ok && tid == Id {
 			//
 			//【查1】/view/:teacherId/all?code=xxx
-			rows, err := db.Query("SELECT st.name FROM st_student as st")
+			//显示：学生名单
+			rows, err := db.Query("SELECT st.sid, st.name FROM st_student as st")
 			if err != nil {
 				fmt.Println("查询出错了", err) //测试
 				c.String(http.StatusOK, "no result")
 			} else {
 				responseText := ""
 				for rows.Next() {
+					var sid string
 					var stName string
-					err := rows.Scan(&stName)
+					err := rows.Scan(&sid, &stName)
 					if err != nil {
 						fmt.Println("rows fail", err)
 					}
-					responseText += stName + "\n"
+					responseText += sid + "  " + stName + "\n"
 				}
 				c.String(http.StatusOK, responseText)
 				return
@@ -224,6 +226,7 @@ func login(c *gin.Context) {
 			c.String(http.StatusOK, "no result")
 			return
 		} else {
+			//是老师
 			c.String(http.StatusOK, Name)
 			verCode = rand.Intn(9000) + 1000
 			verCodeMapTc[verCode] = Id
@@ -231,6 +234,7 @@ func login(c *gin.Context) {
 			fmt.Println("verification code: ", verCode)
 		}
 	} else {
+		//是学生
 		// c.String(http.StatusOK, "hello "+stName+", verification code is send to your phone"+phoneNumber)
 		c.String(http.StatusOK, Name)
 		verCode = rand.Intn(9000) + 1000

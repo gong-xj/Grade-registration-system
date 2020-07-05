@@ -10,5 +10,5 @@ import SwiftUI
 
 struct St: Identifiable {
     var id: Int
-    var name: String
+    var sidAndStname: String
 }
