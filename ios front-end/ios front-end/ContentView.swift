@@ -12,7 +12,7 @@ struct ContentView: View, Identifiable {
     @State var id = "xh001"
 //    @State var id = "xh20200101"
     @State var name = ""
-    @State var vercode = ""
+    @State var vercode = "5806"
     @State var login = false
     @State var res = ""
     @State var res2 = [String.SubSequence]()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		123EA23424BD872C00AD84C6 /* NewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123EA23324BD872C00AD84C6 /* NewView.swift */; };
 		124EA35924AB315100CBF266 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124EA35824AB315100CBF266 /* SwiftUIView.swift */; };
 		12951E4C24AD974300E72E59 /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12951E4B24AD974300E72E59 /* MeView.swift */; };
 		12951E4E24AD979E00E72E59 /* ScView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12951E4D24AD979E00E72E59 /* ScView.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		123EA23324BD872C00AD84C6 /* NewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewView.swift; sourceTree = "<group>"; };
 		124EA35824AB315100CBF266 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		12951E4B24AD974300E72E59 /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
 		12951E4D24AD979E00E72E59 /* ScView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				12951E4B24AD974300E72E59 /* MeView.swift */,
 				124EA35824AB315100CBF266 /* SwiftUIView.swift */,
 				12951E5724B04C7F00E72E59 /* Row例子.swift */,
+				123EA23324BD872C00AD84C6 /* NewView.swift */,
 				12CF549D24A9D038002AAEDC /* Assets.xcassets */,
 				12CF54A224A9D038002AAEDC /* LaunchScreen.storyboard */,
 				12CF54A524A9D038002AAEDC /* Info.plist */,
@@ -303,6 +306,7 @@
 				12951E5C24B0B28900E72E59 /* TcLoggedView.swift in Sources */,
 				124EA35924AB315100CBF266 /* SwiftUIView.swift in Sources */,
 				12951E5224AD990E00E72E59 /* StListView.swift in Sources */,
+				123EA23424BD872C00AD84C6 /* NewView.swift in Sources */,
 				12951E6024B0CC9400E72E59 /* StLoggedView.swift in Sources */,
 				12951E5E24B0B95A00E72E59 /* Sc.swift in Sources */,
 				12951E4E24AD979E00E72E59 /* ScView.swift in Sources */,
