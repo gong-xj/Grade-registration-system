@@ -10,9 +10,13 @@ import SwiftUI
 
 struct StListView: View {
     @State var stData: [St]
-    @State var pushed = false
-    @State var id = "xh20200101"
     @State var vercode: String
+    
+    @State var pushed = false
+//    @State var selectedStData0 = "xh20200104  小a"
+//    @State var id = "xh20200101"
+    @State var id = ""
+    @State var stName = ""
     @State var res = ""
     @State var res2 = [String.SubSequence]()
     @State var scData = [Sc]()
@@ -21,13 +25,20 @@ struct StListView: View {
         NavigationView {
             VStack{
 //                NavigationLink(destination: NewView(), isActive: self.$pushed, label: {
-                    NavigationLink(destination: ScView(scData: self.scData), isActive: self.$pushed, label: {
+                NavigationLink(destination: ScView(scData: self.scData, name: self.stName), isActive: self.$pushed, label: {
                     EmptyView()
                 })
                 List(stData) { st in
                     Text (st.sidAndStname)
 //                    Button(action: {self.pushed=true})
                     Button(action: {
+//                        self.scData = StSc(id:self.id, vercode:self.vercode)
+//                        self.pushed = true
+                        self.scData = [Sc]()
+                        let selectedStData = st.sidAndStname.components(separatedBy:" ")
+                        print(selectedStData)
+                        self.id = selectedStData[0]
+                        self.stName = selectedStData[2]
                         let url = URL(string: "https://localhost:8081/view/\(self.id)/all?code=\(self.vercode)")!
                         let task = URLSession(configuration: .default, delegate: AllowsSelfSignedCertificateDelegate(), delegateQueue: nil).dataTask(with: url) {(data, response, error) in
                             guard let data = data else { return }
@@ -42,8 +53,9 @@ struct StListView: View {
                             if self.res != "0" {
                                 self.pushed = true
                             }
-                            print(self.stData)
-                            print(self.scData)
+//                            print(self.stData)
+//                            print(self.scData)
+                            print(self.id, self.stName)
                         }
                         task.resume()
                     })
@@ -58,27 +70,30 @@ struct StListView: View {
 }
 
 //func StSc (id: String, vercode: String) -> [Sc] {
-////    @State var id = "xh001"
+////    @State var id = "xh20200101"
 ////    @State var vercode = "5806"
-//    @State var id: String
-//    @State var vercode: String
-//    @State var scData = [Sc]()
+////    @State var id: String
+////    @State var vercode: String
+//     var scData = [Sc]()
 //
-//    let url = URL(string: "https://localhost:8081/view/\(self.id)/all?code=\(self.vercode)")!
+//    let url = URL(string: "https://localhost:8081/view/\(id)/all?code=\(vercode)")!
 //    let task = URLSession(configuration: .default, delegate: AllowsSelfSignedCertificateDelegate(), delegateQueue: nil).dataTask(with: url) {(data, response, error) in
 //        guard let data = data else { return }
-//        self.res=String(data: data, encoding: .utf8)!
-//        self.res2 = self.res.split { $0.isNewline }
-//        for (i,item) in self.res2.enumerated() {
+//        var res=String(data: data, encoding: .utf8)!
+//        var res2 = res.split { $0.isNewline }
+//        for (i,item) in res2.enumerated() {
 //            var scRow = Sc(id: 0, nameAndScore:"" )
 //            scRow.id = i
 //            scRow.nameAndScore = String(item)
-//            self.scData.append(scRow)
+//            scData.append(scRow)
 //        }
 ////        print(self.stData)
-////        print(self.scData)
+//        print(scData)
+////        return scData
 //    }
-//    task.resume()
+//    return nil
+////    task.resume()
+////    return scData
 //}
 
 

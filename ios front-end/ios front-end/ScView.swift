@@ -10,10 +10,16 @@ import SwiftUI
 
 struct ScView: View {
     @State var scData: [Sc]
+    @State var name: String
+    
     
     var body: some View {
-        List(scData) { sc in
-            Text(sc.nameAndScore)
+        VStack{
+//            Spacer()
+            Text(name)
+            List(scData) { sc in
+                Text(sc.nameAndScore)
+            }
         }
 //        NavigationView {
 //            List(scData) { sc in
@@ -29,6 +35,6 @@ struct ScView: View {
 
 struct ScView_Previews: PreviewProvider {
     static var previews: some View {
-        ScView(scData: [])
+        ScView(scData: [], name: "")
     }
 }

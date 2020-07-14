@@ -16,7 +16,7 @@ struct StLoggedView: View {
     
     var body: some View {
         TabView {
-            ScView(scData:scData)
+            ScView(scData:scData, name:name)
                 .tabItem {
                      Image(systemName: "circle.fill")
                      Text("成绩单")
