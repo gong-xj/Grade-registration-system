@@ -15,10 +15,10 @@ struct MeView: View {
     @State var login = true
     
     var body: some View {
-//        VStack{
-//            if self.login == false {
-//                ContentView()
-//            }else{
+        VStack{
+            if self.login == false {
+                ContentView()
+            }else{
                 VStack {
                     VStack(alignment: .leading) {
                         Text("姓名：\(self.name)")
@@ -26,7 +26,8 @@ struct MeView: View {
                         Text("ID：\(self.id)")
                     }
                     Button(action: {
-                        UserDefaults.standard.removeObject(forKey: "Url")
+                        UserDefaults.standard.removeObject(forKey: "Id")
+                        UserDefaults.standard.removeObject(forKey: "Vercode")
                         UserDefaults.standard.removeObject(forKey: "Name")
                         self.login = false
                     }) {
@@ -34,8 +35,8 @@ struct MeView: View {
                             .foregroundColor(Color.gray)
                     }
                 }
-//            }
-//        }
+            }
+        }
     }
 }
 

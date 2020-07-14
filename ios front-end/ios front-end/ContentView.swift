@@ -26,9 +26,8 @@ struct ContentView: View, Identifiable {
         VStack {
 //            第一次登录
 //            判断UserDefaults中是否已经存在
-//            let name = UserDefaults.standard.string(forKey: "Name")
             if login == false {
-//            if login == false && vercode == nil {
+//            if login == false && vercode == "" {
                 VStack {
                     VStack {
                         VStack(alignment: .center) {
@@ -109,36 +108,37 @@ struct ContentView: View, Identifiable {
     }
     
     init(){
-        print("init啦")
+        print("init啦") //测试
         if vercode != "" {
-            print("vercode不为nil啦")
+            print("vercode不为nil啦") //测试
             let url = URL(string: "https://localhost:8081/view/\(id)/all?code=\(vercode)")!
+            let a = self //否则报错：Escaping closure captures mutating 'self' parameter
             let task = URLSession(configuration: .default, delegate: AllowsSelfSignedCertificateDelegate(), delegateQueue: nil).dataTask(with: url) {(data, response, error) in
                 guard let data = data else { return }
-                self.res=String(data: data, encoding: .utf8)!
-                self.res2 = self.res.split { $0.isNewline }
-                if self.id.count < 10 {
-                    self.stOrTe = "老师"
+                a.res=String(data: data, encoding: .utf8)!
+                a.res2 = a.res.split { $0.isNewline }
+                if a.id.count < 10 {
+                    a.stOrTe = "老师"
                     //res2转化为st格式
-                    for (i,item) in self.res2.enumerated() {
+                    for (i,item) in a.res2.enumerated() {
                         var stRow = St(id: 0, sidAndStname:"" )
                         stRow.id = i
                         stRow.sidAndStname = String(item)
-                        self.stData.append(stRow)
+                        a.stData.append(stRow)
                     }
                 }else{
-                    for (i,item) in self.res2.enumerated() {
+                    for (i,item) in a.res2.enumerated() {
                         var scRow = Sc(id: 0, nameAndScore:"" )
                         scRow.id = i
                         scRow.nameAndScore = String(item)
-                        self.scData.append(scRow)
+                        a.scData.append(scRow)
                     }
                 }
-                if self.res != "0" {
-                    self.login=true
+                if a.res != "0" {
+                    a.login=true
                 }
             }
-            task.resume()
+            task.resume() //可删掉
         }
     }
 }
