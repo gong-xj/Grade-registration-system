@@ -21,15 +21,6 @@ struct ScView: View {
                 Text(sc.nameAndScore)
             }
         }
-//        NavigationView {
-//            List(scData) { sc in
-////                NavigationLink(destination: 跳转界面(数据结构: 数据结构))
-////                {
-//                Text (sc.nameAndScore)
-////                }
-//            }
-//            .navigationBarTitle(Text("成绩单"))
-//        }
     }
 }
 

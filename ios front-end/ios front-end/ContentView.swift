@@ -9,23 +9,26 @@
 import SwiftUI
 
 struct ContentView: View, Identifiable {
-    @State var id = "xh001"
-    @State var vercode = "5731"
+    @State var id : String = UserDefaults.standard.string(forKey: "Id") ?? "xh001"
+    @State var vercode : String = UserDefaults.standard.string(forKey: "Vercode") ?? ""
 //    @State var id = "xh20200101"
 //    @State var vercode = ""
-    @State var name = ""
+    @State var name : String = UserDefaults.standard.string(forKey: "Name") ?? ""
     @State var login = false
     @State var res = ""
     @State var res2 = [String.SubSequence]()
     @State var stData = [St]()
     @State var scData = [Sc]()
     @State var stOrTe = "学生"
-//    @State var res2 = "学科名 分数\n语文  85\n英语  100\n物理  100\n美术  90"
     
 
     var body: some View {
         VStack {
-            if login==false {
+//            第一次登录
+//            判断UserDefaults中是否已经存在
+//            let name = UserDefaults.standard.string(forKey: "Name")
+            if login == false {
+//            if login == false && vercode == nil {
                 VStack {
                     VStack {
                         VStack(alignment: .center) {
@@ -41,7 +44,6 @@ struct ContentView: View, Identifiable {
                                     let task = URLSession(configuration: .default, delegate: AllowsSelfSignedCertificateDelegate(), delegateQueue: nil).dataTask(with: url) {(data, response, error) in
                                         guard let data = data else { return }
                                         self.name = String(data: data, encoding: .utf8)!
-        //                                print(String(data: data, encoding: .utf8)!)
                                     }
                                     task.resume()}) {
                                     Text("发送验证码")
@@ -53,12 +55,9 @@ struct ContentView: View, Identifiable {
                     }
                     HStack {
                         Button(action: {
-//                            print(">>>登录button")
                             let url = URL(string: "https://localhost:8081/view/\(self.id)/all?code=\(self.vercode)")!
                             let task = URLSession(configuration: .default, delegate: AllowsSelfSignedCertificateDelegate(), delegateQueue: nil).dataTask(with: url) {(data, response, error) in
-//                            let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
                                 guard let data = data else { return }
-    //                                print(String(data: data, encoding: .utf8)!)
                                 self.res=String(data: data, encoding: .utf8)!
                                 self.res2 = self.res.split { $0.isNewline }
                                 if self.id.count < 10 {
@@ -81,10 +80,15 @@ struct ContentView: View, Identifiable {
                                 if self.res != "0" {
                                     self.login=true
                                 }
-                                print(self.stData)
-                                print(self.scData)
-                                print(self.stOrTe)
-                                print(self.name)
+                                //id，vercode，name数据持久化：userdefault
+                                let userDefault = UserDefaults.standard
+                                userDefault.set(self.id, forKey: "Id")
+//                                id = userDefault.string(forKey: "Id")
+                                userDefault.set(self.vercode, forKey: "Vercode")
+//                                vercode = userDefault.string(forKey: "Vercode")
+                                userDefault.set(self.name, forKey: "Name")
+//                                name = userDefault.string(forKey: "Name")
+//                                print("userDefault = \(userDefault)")
                             }
                             task.resume()}) {
                         Text("登录")
@@ -101,6 +105,40 @@ struct ContentView: View, Identifiable {
                     }
                 }
             }
+        }
+    }
+    
+    init(){
+        print("init啦")
+        if vercode != "" {
+            print("vercode不为nil啦")
+            let url = URL(string: "https://localhost:8081/view/\(id)/all?code=\(vercode)")!
+            let task = URLSession(configuration: .default, delegate: AllowsSelfSignedCertificateDelegate(), delegateQueue: nil).dataTask(with: url) {(data, response, error) in
+                guard let data = data else { return }
+                self.res=String(data: data, encoding: .utf8)!
+                self.res2 = self.res.split { $0.isNewline }
+                if self.id.count < 10 {
+                    self.stOrTe = "老师"
+                    //res2转化为st格式
+                    for (i,item) in self.res2.enumerated() {
+                        var stRow = St(id: 0, sidAndStname:"" )
+                        stRow.id = i
+                        stRow.sidAndStname = String(item)
+                        self.stData.append(stRow)
+                    }
+                }else{
+                    for (i,item) in self.res2.enumerated() {
+                        var scRow = Sc(id: 0, nameAndScore:"" )
+                        scRow.id = i
+                        scRow.nameAndScore = String(item)
+                        self.scData.append(scRow)
+                    }
+                }
+                if self.res != "0" {
+                    self.login=true
+                }
+            }
+            task.resume()
         }
     }
 }
