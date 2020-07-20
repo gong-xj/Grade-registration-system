@@ -116,9 +116,9 @@ func view(c *gin.Context) {
 	verCode1, _ := verCodeMap[Id]
 	inputVerCode1, _ := strconv.Atoi(inputVerCode)
 	tid, ok := verCodeMapTc[inputVerCode1]
-	if (inputVerCode1 != verCode1 && !ok) || verCode == 0 {
-		// c.String(http.StatusOK, "please log in.") //2选1
-		c.String(http.StatusOK, "0") //2选1
+	if (inputVerCode1 != verCode1 && !ok) || verCode == 0 || inputVerCode1 == 0 || inputVerCode == "" {
+		c.String(http.StatusOK, "please log in.") //2选1
+		// c.String(http.StatusOK, "0") //2选1
 	} else if courseCode == "all" {
 		if ok && tid == Id {
 			//
@@ -137,7 +137,7 @@ func view(c *gin.Context) {
 					if err != nil {
 						fmt.Println("rows fail", err)
 					}
-					responseText += sid + "  " + stName + "\n"
+					responseText += sid + "    " + stName + "\n"
 				}
 				c.String(http.StatusOK, responseText)
 				return
@@ -151,7 +151,7 @@ func view(c *gin.Context) {
 			} else {
 				//// c.String(http.StatusOK, "学科名 分数\n")
 				//循环读取结果
-				responseText := "学科名 分数\n" //2选1
+				responseText := "学科名 点数\n" //2选1
 				// responseText := "1" //2选1
 				for rows.Next() {
 					var csName string
@@ -175,7 +175,7 @@ func view(c *gin.Context) {
 		// 【查3】/view/:studentId/:courseCode?code=xxx
 		csName, score, ok := viewStIDCsCd(Id, courseCode, c)
 		if ok {
-			c.String(http.StatusOK, "学科名："+csName+" 分数："+score)
+			c.String(http.StatusOK, "学科名："+csName+" 点数："+score)
 		} else {
 			c.String(http.StatusOK, "no result")
 		}

@@ -34,7 +34,6 @@ struct StListView: View {
                         self.scData = [Sc]()
                         let selectedStData = st.sidAndStname.split(separator: " ").map(String.init)
 //                        let selectedStData = st.sidAndStname.components(separatedBy:" ")
-                        print(selectedStData)
                         self.id = selectedStData[0]
                         self.stName = selectedStData[1]
                         let url = URL(string: "https://localhost:8081/view/\(self.id)/all?code=\(self.vercode)")!
@@ -48,21 +47,28 @@ struct StListView: View {
                                 scRow.nameAndScore = String(item)
                                 self.scData.append(scRow)
                             }
-                            if self.res != "0" {
+                            if self.res != "please log in." {
                                 self.pushed = true
                             }
-//                            print(self.stData)
-//                            print(self.scData)
-//                            print(self.id, self.stName)
                         }
                         task.resume()
                     })
                     {
-                        Text("查看")
+                        HStack {
+                            Spacer()
+//                            Text("詳細")
+                            Image(systemName: "chevron.right")
+                        }
                     }
                 }
             }
-            .navigationBarTitle(Text("学生名单"))
+//            .navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.orange, NSFontAttributeName : UIFont.systemFont(ofSize: 25)]
+            .navigationBarTitle(Text("学生リスト")
+//                .font(.headline)
+//                .font(.system(size: 12, weight: .light, design: .serif))
+            )
+//            let dict:NSDictionary = [NSForegroundColorAttributeName: UIColor.blackColor(),NSFontAttributeName : UIFont.boldSystemFontOfSize(18)]
+//            .font(.headline) //字体大小
         }
     }
 }

@@ -14,11 +14,12 @@ struct ScView: View {
     
     
     var body: some View {
-        VStack{
+        VStack(alignment: .center){
 //            Spacer()
             Text(name)
             List(scData) { sc in
                 Text(sc.nameAndScore)
+//                    .multilineTextAlignment(.center)
             }
         }
     }
