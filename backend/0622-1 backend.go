@@ -244,66 +244,6 @@ func login(c *gin.Context) {
 	}
 }
 
-// //4【login/student/:Id】
-// func loginSt(c *gin.Context) {
-// 	fmt.Println("--->") //测试1
-// 	db := connect()
-// 	if db == nil {
-// 		c.String(http.StatusOK, "server is under maintenance")
-// 		return
-// 	}
-// 	defer db.Close()
-// 	// StTc := c.Param("StTc") //参数a
-// 	// if StTc == "student" {
-// 	Id := c.Param("Id") //参数b
-// 	// } else {
-// 	// 	TeId := c.Param("Id") //参数c
-// 	// }
-// 	var stName string      //打印1
-// 	var phoneNumber string //打印2
-// 	queryResult := db.QueryRow("SELECT st.name, st.phone FROM st_student as st WHERE sid=?", Id)
-// 	fmt.Println("query ok") //测试2
-// 	err := queryResult.Scan(&stName, &phoneNumber)
-// 	if err != nil { //测试3
-// 		fmt.Println("查询出错了", err) //测试
-// 		c.String(http.StatusOK, "no result")
-// 	} else {
-// 		// c.String(http.StatusOK, "hello "+stName+", verification code is send to your phone"+phoneNumber)
-// 		c.String(http.StatusOK, stName)
-// 		verCode = rand.Intn(9000) + 1000
-// 		verCodeMap[Id] = verCode
-// 		fmt.Println(verCodeMap)
-// 		fmt.Println("verification code: ", verCode)
-// 	}
-// }
-
-// //5【login/teacher/:Id】
-// func loginTc(c *gin.Context) {
-// 	fmt.Println("--->") //测试1
-// 	db := connect()
-// 	if db == nil {
-// 		c.String(http.StatusOK, "server is under maintenance")
-// 		return
-// 	}
-// 	defer db.Close()
-// 	Id := c.Param("Id")    //参数b
-// 	var tcName string      //打印1
-// 	var phoneNumber string //打印2
-// 	queryResult := db.QueryRow("SELECT tc.name, tc.phone FROM st_teacher as tc WHERE tid=?", Id)
-// 	fmt.Println("query ok") //测试2
-// 	err := queryResult.Scan(&tcName, &phoneNumber)
-// 	if err != nil { //测试3
-// 		fmt.Println("查询出错了", err) //测试
-// 		c.String(http.StatusOK, "no result")
-// 	} else {
-// 		c.String(http.StatusOK, "hello "+tcName+", verification code is send to your phone"+phoneNumber)
-// 		verCode = rand.Intn(9000) + 1000
-// 		verCodeMapTc[verCode] = Id
-// 		fmt.Println(verCodeMapTc)
-// 		fmt.Println("verification code: ", verCode)
-// 	}
-// }
-
 func connect() *sql.DB {
 	//构建连接："用户名:密码@tcp(IP:端口)/数据库?charset=utf8"
 	path := strings.Join([]string{userName, ":", password, "@tcp(", ip, ":", port, ")/", dbName, "?charset=utf8"}, "")
