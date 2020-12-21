@@ -26,8 +26,8 @@ struct ContentView: View, Identifiable {
 
     var body: some View {
         VStack {
-//            第一次登录
-//            判断UserDefaults中是否已经存在
+//            初めてlogin
+//            UserDefaultsに存在するか確認
             if login == false {
 //            if login == false && vercode == "" {
                 VStack {
@@ -37,14 +37,14 @@ struct ContentView: View, Identifiable {
                                 Text("ID           ")
 //                                .frame(width: 80, height: 30)
                                 TextField("ID", text: $id)
-                                .textFieldStyle(RoundedBorderTextFieldStyle()) //边框
+                                .textFieldStyle(RoundedBorderTextFieldStyle()) //frame
                             }
                             HStack {
-                                Text("認証番号") //中文
+                                Text("認証番号") //日本語
 //                                .frame(width: 80, height: 30)
-//                                Text("验证码")　//日本語
-                                SecureField("VerCode", text: $vercode) //输入保密，显示圆点
-                                .textFieldStyle(RoundedBorderTextFieldStyle()) //边框
+//                                Text("验证码")　//中文
+                                SecureField("VerCode", text: $vercode) //入力をdotに表示
+                                .textFieldStyle(RoundedBorderTextFieldStyle()) //frame
                                 Button(action: {
                                     let url = URL(string: "https://localhost:8081/login/\(self.id)")!
                                     let task = URLSession(configuration: .default, delegate: AllowsSelfSignedCertificateDelegate(), delegateQueue: nil).dataTask(with: url) {(data, response, error) in
@@ -59,13 +59,13 @@ struct ContentView: View, Identifiable {
                                             
                                         }
                                         .frame(minWidth: 0, maxWidth: 80)
-                                        .padding(10) //填充尺寸
-                                        .foregroundColor(Color.black) //字体颜色
-//                                        .font(.headline) //字体大小
+                                        .padding(10) //塗りつぶし?のsize
+                                        .foregroundColor(Color.black) //fontの色
+//                                        .font(.headline) //fontのsize
 //                                        .border(Color.gray, width: 1)
-//                                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2)) //边框
-                                        .background(Color(red: 0.5, green: 0.5, blue: 0.5, opacity: 0.3)) //背景颜色
-                                        .cornerRadius(20) //背景圆角
+//                                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2)) //frame
+                                        .background(Color(red: 0.5, green: 0.5, blue: 0.5, opacity: 0.3)) //背景色
+                                        .cornerRadius(20) //背景の丸めの角
                                 }
                             }
                         }
@@ -83,7 +83,7 @@ struct ContentView: View, Identifiable {
                                     self.res2 = self.res.split { $0.isNewline }
                                     if self.id.count < 10 {
                                         self.stOrTe = "先生"
-                                        //res2转化为st格式
+                                        // res2　-> st
                                         for (i,item) in self.res2.enumerated() {
                                             var stRow = St(id: 0, sidAndStname:"" )
                                             stRow.id = i
@@ -100,7 +100,7 @@ struct ContentView: View, Identifiable {
                                     }
                                     self.login = true
                                 }
-                                //id，vercode，name数据持久化：userdefault
+                                //id，vercode，nameのdataの永続性?：userdefault
 //                                let userDefault = UserDefaults.standard
 //                                userDefault.set(self.id, forKey: "Id")
 //                                id = userDefault.string(forKey: "Id")
@@ -117,10 +117,10 @@ struct ContentView: View, Identifiable {
                                 }
                                 .frame(minWidth: 0, maxWidth: 200)
     //                            .frame(minWidth: 0, maxWidth: .infinity)
-                                .padding(10) //填充尺寸
-                                .foregroundColor(Color.black) //字体颜色
-                                .background(Color(red: 0.5, green: 0.5, blue: 0.5, opacity: 0.3)) //背景颜色
-                                .cornerRadius(20) //背景圆角
+                                .padding(10)
+                                .foregroundColor(Color.black)
+                                .background(Color(red: 0.5, green: 0.5, blue: 0.5, opacity: 0.3))
+                                .cornerRadius(20)
                         }
                     }
                 }
@@ -138,9 +138,9 @@ struct ContentView: View, Identifiable {
     }
     
 //    init(){
-//        print("init啦") //测试
+//        print("init啦") //test
 //        if vercode != "" {
-//            print("vercode不为nil啦") //测试
+//            print("vercode不为nil啦") //test
 //            let url = URL(string: "https://localhost:8081/view/\(id)/all?code=\(vercode)")!
 //            let a = self //否则报错：Escaping closure captures mutating 'self' parameter
 //            let task = URLSession(configuration: .default, delegate: AllowsSelfSignedCertificateDelegate(), delegateQueue: nil).dataTask(with: url) {(data, response, error) in

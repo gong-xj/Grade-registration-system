@@ -21,38 +21,38 @@ struct MeView: View {
             }else{
                 VStack {
                     VStack(alignment: .leading) {
-                        //【1，下划线】
+                        //【1, underline】
                         Form {
                             Text("　　名前 ： \(self.name)")
                             Text("　　身元 ： \(self.stOrTe)")
                             Text("　　ID　 ： \(self.id)")
                             Text("")
                         }
-                        .offset(x: -7, y: -40) //下划线左右两端对齐
-//                        .clipShape(Rectangle()) //切掉背景
-                        .frame(width: 220, height: 169) //移到中心
-                        .clipped() //切掉背景
-//                        //【2，框框】
+                        .offset(x: -7, y: -40) //underlineを左右に揃える
+//                        .clipShape(Rectangle()) //背景を切り取る
+                        .frame(width: 220, height: 169) //中に移す
+                        .clipped() //背景を切り取る
+//                        //【2, frame】
 //                        HStack {
 //                            Text("名前")
 //                            .padding(10)
-//                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(red: 0.5, green: 0.5, blue: 0.5, opacity: 0.3), lineWidth: 1)) //边框
+//                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(red: 0.5, green: 0.5, blue: 0.5, opacity: 0.3), lineWidth: 1)) //frame
 //                            .padding(5)
 ////                                .border(Color.gray, width: 1)
-////                                .cornerRadius(20) //背景圆角
+////                                .cornerRadius(20) //背景の丸めの角
 //                            Text(self.name)
 //                        }
 //                        HStack {
 //                            Text("身元")
 //                            .padding(10)
-//                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(red: 0.5, green: 0.5, blue: 0.5, opacity: 0.3), lineWidth: 1)) //边框
+//                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(red: 0.5, green: 0.5, blue: 0.5, opacity: 0.3), lineWidth: 1)) //frame
 //                            .padding(5)
 //                            Text(self.stOrTe)
 //                        }
 //                        HStack {
 //                           Text("ID　")
 //                            .padding(10)
-//                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(red: 0.5, green: 0.5, blue: 0.5, opacity: 0.3), lineWidth: 1)) //边框
+//                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(red: 0.5, green: 0.5, blue: 0.5, opacity: 0.3), lineWidth: 1)) //frame
 //                            .padding(5)
 //                           Text(self.id)
 //                       }
@@ -63,7 +63,7 @@ struct MeView: View {
 //                        UserDefaults.standard.removeObject(forKey: "Name")
 //                        self.login = false
 //                    }) {
-//                        Text("退出登录")
+//                        Text("log out")
 //                            .foregroundColor(Color.gray)
 //                    }
                 }

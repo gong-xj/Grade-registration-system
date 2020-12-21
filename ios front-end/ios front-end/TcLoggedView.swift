@@ -34,6 +34,6 @@ struct TcLoggedView: View {
 
 struct TcLoggedView_Previews: PreviewProvider {
     static var previews: some View {
-        TcLoggedView(id: "id??", name: "name??", stData: [], stOrTe: "老师？？", vercode: "vercode??")
+        TcLoggedView(id: "id??", name: "name??", stData: [], stOrTe: "先生？？", vercode: "vercode??")
     }
 }
